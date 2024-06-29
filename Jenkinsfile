@@ -7,7 +7,7 @@ pipeline{
             }
         }
         stage('first user'){
-                echo(message: 'first User')
+                echo 'first User'
         }
 
 
