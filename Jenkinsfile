@@ -1,5 +1,6 @@
 pipeline{
-    DOCKERHUB_CREDENTIALS="dockerDevopsId"
+    DOCKERHUB_CREDENTIALS=credentials("dockerDevopsId")
+                           
     agent any
     stages{
         stage('recuperation code depuis github'){
