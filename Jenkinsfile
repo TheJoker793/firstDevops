@@ -6,9 +6,6 @@ pipeline{
                 echo 'code pulled Ok'
             }
         }
-        stage('first user'){
-                echo 'first User'
-        }
 
 
 
