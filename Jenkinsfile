@@ -22,7 +22,7 @@ pipeline{
         stage('Build Docker Image'){
             steps{
                 echo 'on va créer une image'
-                sh 'docker build -t hmproject .'
+                sh 'docker build -t channoufi/firstdevopsdocker .'
                 echo 'image crée'
             }
         }
