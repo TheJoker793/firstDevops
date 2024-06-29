@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps{
-                sh ' docker build -t first hmproject .'
+                sh ' docker build -t hmproject .'
             }
         }
 
