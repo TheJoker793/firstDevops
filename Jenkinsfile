@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps{
-                sh 'build docker -t devopsDocker .'
+                sh 'build docker -t firstdevopsdocker .'
             }
         }
 
