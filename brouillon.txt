@@ -1,0 +1,44 @@
+pipeline {
+        environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub_cred_sipacademy2024')
+                    }
+
+          agent any
+          stages {
+
+            stage('Build Docker Image') {
+            steps {
+                
+                sh 'docker build -t hmproject .'    
+                
+                
+            }
+          }
+
+          stage('Tag and Push Docker Image') {
+          steps {
+              script {
+            sh "docker tag hmproject channoufi/hmproject:latest"
+            sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
+            sh 'docker push channoufi/hmproject:latest'
+        }
+            }
+           post {
+             always {
+            sh 'docker logout'
+                    }
+                }
+
+          }
+
+          stage('Run Docker Container') {
+            steps {
+                script {
+                    // Run the container
+                    sh "docker run -d --name hm-angular-container -p 7007:80 channoufi/hmproject:latest"
+                }
+            }
+        }
+       }
+}
+
