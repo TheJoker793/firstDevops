@@ -1,4 +1,5 @@
 pipeline{
+    DOCKERHUB_CREDENTIALS=""
     agent any
     stages{
         stage('recuperation code depuis github'){
@@ -14,6 +15,13 @@ pipeline{
                 echo 'coming soon'
             }
         }
+        stage('Build Docker Image'){
+            steps{
+                sh 'build docker devopsDocker .'
+            }
+        }
+
+
 
     }
 }
