@@ -21,7 +21,9 @@ pipeline{
         }
         stage('Build Docker Image'){
             steps{
-                sh ' docker build -t hmproject .'
+                echo 'on va créer une image'
+                sh 'docker build -t hmproject .'
+                echo 'image crée'
             }
         }
 
