@@ -9,7 +9,7 @@ pipeline{
 
 
 
-        stage('construction image docker '){
+        stage('going to the construction image docker '){
             steps{
                 echo 'coming soon'
             }
